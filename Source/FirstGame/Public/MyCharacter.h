@@ -47,7 +47,24 @@ public:
 	FOnInteractSignature OnInteract;
 	
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	float SprintSpeed = 900.0f;
+	float SprintSpeed = 1000.0f;
 	
 	float WalkSpeed = 500.0f;
+	
+	UPROPERTY(BlueprintReadOnly, category = "Stamina")
+	float Stamina = 100.0f;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Stamina")
+	float MaxStamina = 100.0f;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Stamina")
+	float StaminaDrainRate = 25.0f;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Stamina")
+	float StaminaRegenRate = 15.0f;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Stamina")
+	float MinStaminaToSprint = 10.0f;
+	
+	
 };

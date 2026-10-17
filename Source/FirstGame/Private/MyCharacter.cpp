@@ -5,6 +5,7 @@
 #include "InputAction.h"
 #include "GameFramework/CharacterMovementComponent.h"
 #include "EnhancedInputComponent.h"
+#include "Engine/Engine.h"
 
 // Sets default values
 AMyCharacter::AMyCharacter()
@@ -25,7 +26,28 @@ void AMyCharacter::BeginPlay()
 void AMyCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
+	
+	const bool bIsMoving = GetVelocity().SizeSquared2D() > 1.0f;
+	
+	if (bIsSprinting && bIsMoving)
+	{
+		Stamina = FMath::Max(0.0f, Stamina - StaminaDrainRate * DeltaTime);
+		
+		if (Stamina <= 0.0f)
+		{
+			StopSprint();
+		}
+	}
+	else if (!bIsSprinting)
+	{
+		
+		Stamina = FMath::Min(MaxStamina, Stamina + StaminaRegenRate * DeltaTime);
+	}
+	if (GEngine)
+	{
+		GEngine->AddOnScreenDebugMessage(1, 0.0f, FColor::Yellow,
+			FString::Printf(TEXT("Stamina: %.0f / %.0f"), Stamina, MaxStamina));
+	}
 }
 
 // Called to bind functionality to input
@@ -50,6 +72,10 @@ void AMyCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompone
 
 void AMyCharacter::StartSprint()
 {
+	if (Stamina < MinStaminaToSprint)
+	{
+		return;
+	}
 	bIsSprinting = true;
 	GetCharacterMovement()->MaxWalkSpeed = SprintSpeed;
 }
