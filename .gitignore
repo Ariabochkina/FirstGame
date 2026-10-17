@@ -1,0 +1,41 @@
+# Unreal Engine - generated folders
+Binaries/
+DerivedDataCache/
+Intermediate/
+Saved/
+Build/
+.vs/
+.idea/
+.vscode/
+
+# Generated project files
+*.sln
+*.slnx
+*.suo
+*.opensdf
+*.sdf
+*.VC.db
+*.VC.opendb
+*.xcodeproj
+*.xcworkspace
+*.code-workspace
+
+# Compiled / debug artifacts
+*.pdb
+*.obj
+*.exe
+*.dll
+*.ilk
+*.exp
+*.lib
+*.a
+*.o
+*.dSYM/
+
+# Rider / VS user files
+*.user
+*.DotSettings.user
+
+# OS junk
+.DS_Store
+Thumbs.db
