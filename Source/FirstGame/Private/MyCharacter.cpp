@@ -20,6 +20,7 @@ void AMyCharacter::BeginPlay()
 {
 	Super::BeginPlay();
 	WalkSpeed = GetCharacterMovement()->MaxWalkSpeed;
+	Stamina = MaxStamina;
 }
 
 // Called every frame
@@ -38,9 +39,8 @@ void AMyCharacter::Tick(float DeltaTime)
 			StopSprint();
 		}
 	}
-	else if (!bIsSprinting)
+	else
 	{
-		
 		Stamina = FMath::Min(MaxStamina, Stamina + StaminaRegenRate * DeltaTime);
 	}
 	if (GEngine)
