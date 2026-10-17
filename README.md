@@ -1,8 +1,8 @@
-# FirstGame - ДЗ 1: расширение Third Person Template
+# FirstGame
 
 Unreal Engine 5.8. Проект на основе шаблона Third Person, расширенный C++ классом персонажа.
 
-## Что сделано
+## Сделано
 
 - **Наследование.** C++ класс `AMyCharacter` (наследник `ACharacter`). Родитель `BP_ThirdPersonCharacter` заменён на него (File -> Reparent Blueprint), движение, камера и прыжок из шаблона работают как раньше.
 - **Enhanced Input.** Созданы `IA_Sprint` (Left Shift) и `IA_Interact` (E) и добавлены в `IMC_Default`. Привязка через `BindAction` в `SetupPlayerInputComponent`. Ассеты назначены в Class Defaults `BP_ThirdPersonCharacter` (поля `SprintAction` и `InteractAction`).
@@ -17,21 +17,6 @@ Unreal Engine 5.8. Проект на основе шаблона Third Person, �
   - Значение выводится на экран через `GEngine->AddOnScreenDebugMessage` (с проверкой `GEngine`).
 
 
-
-## Параметры (можно менять в Class Defaults `BP_ThirdPersonCharacter`)
-
-
-| Параметр             | Значение по умолчанию | Назначение                               |
-| -------------------- | --------------------- | ---------------------------------------- |
-| `SprintSpeed`        | 1000                  | скорость во время спринта                |
-| `MaxStamina`         | 100                   | максимум выносливости                    |
-| `StaminaDrainRate`   | 25                    | трата выносливости в секунду при спринте |
-| `StaminaRegenRate`   | 15                    | восстановление в секунду                 |
-| `MinStaminaToSprint` | 10                    | минимум для начала спринта               |
-
-
-
-
 ## Управление
 
 
@@ -43,4 +28,15 @@ Unreal Engine 5.8. Проект на основе шаблона Third Person, �
 | Left Shift | спринт                                            |
 | E          | взаимодействие (надпись `Interaction triggered!`) |
 
+
+## Параметры (можно менять в Class Defaults `BP_ThirdPersonCharacter`)
+
+
+| Параметр             | Значение по умолчанию | Назначение                               |
+| -------------------- | --------------------- | ---------------------------------------- |
+| `SprintSpeed`        | 1000                  | скорость во время спринта                |
+| `MaxStamina`         | 100                   | максимум выносливости                    |
+| `StaminaDrainRate`   | 25                    | трата выносливости в секунду при спринте |
+| `StaminaRegenRate`   | 15                    | восстановление в секунду                 |
+| `MinStaminaToSprint` | 10                    | минимум для начала спринта               |
 
